@@ -31,6 +31,17 @@ JSON Web Tokens (JWT) for authentication
 Axios for making HTTP requests
 Feel free to explore the code and customize the application according to your needs.
 
+#To run this website on your computer
+1. git clone https://github.com/Anish-Parkhi/ECommerce.git
+2. cd frontend
+3. npm install
+4. npm run dev
+5. cd ..
+6. cd backend
+7. npm install
+8. npm start
+
+
 #License
 This project is licensed under the MIT License. Feel free to use and modify the code as per the terms of the license.
 
