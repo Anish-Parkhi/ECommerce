@@ -8,6 +8,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseIcon from "@mui/icons-material/Close";
+import Tooltip from "@mui/material/Tooltip";
+import Fade from "@mui/material/Fade";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -76,9 +78,20 @@ function Navbar() {
           </li>
           <li>
             <Link to="/wishlist">Wishlist</Link>
-            <FavoriteIcon
-              style={{ fontSize: "2rem", position: "relative", top: "0.5rem" }}
-            />
+            <Tooltip
+              TransitionComponent={Fade}
+              TransitionProps={{ timeout: 600 }}
+              title="click to open wishlist"
+              arrow
+            >
+              <FavoriteIcon
+                style={{
+                  fontSize: "2rem",
+                  position: "relative",
+                  top: "0.5rem",
+                }}
+              />
+            </Tooltip>
           </li>
           <li>
             <TextField
@@ -88,7 +101,25 @@ function Navbar() {
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton onClick={openOverlay}>
-                      {overlay ? <CloseIcon /> : <SearchIcon />}
+                      {overlay ? (
+                        <Tooltip
+                          TransitionComponent={Fade}
+                          TransitionProps={{ timeout: 600 }}
+                          title="click to close"
+                          arrow
+                        >
+                          <CloseIcon />
+                        </Tooltip>
+                      ) : (
+                        <Tooltip
+                          TransitionComponent={Fade}
+                          TransitionProps={{ timeout: 600 }}
+                          title="click to search"
+                          arrow
+                        >
+                          <SearchIcon />
+                        </Tooltip>
+                      )}
                     </IconButton>
                   </InputAdornment>
                 ),
@@ -105,10 +136,21 @@ function Navbar() {
           <li>
             <Link to="/cart">Cart</Link>
             {/* <span>Cart</span> */}
-            <ShoppingCartIcon
-              style={{ fontSize: "2rem", position: "relative", top: "0.5rem" }}
-              className={styles.muiIcon}
-            />
+            <Tooltip
+              TransitionComponent={Fade}
+              TransitionProps={{ timeout: 600 }}
+              title="click to open cart"
+              arrow
+            >
+              <ShoppingCartIcon
+                style={{
+                  fontSize: "2rem",
+                  position: "relative",
+                  top: "0.5rem",
+                }}
+                className={styles.muiIcon}
+              />
+            </Tooltip>
           </li>
         </ul>
       </nav>
