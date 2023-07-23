@@ -46,7 +46,7 @@ function Navbar() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get("https://backendshopcart-production.up.railway.app/products")
       .then((res) => {
         setPosts(res.data);
         // console.log(post);

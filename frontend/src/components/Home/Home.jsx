@@ -20,7 +20,7 @@ function Home() {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get("https://backendshopcart-production.up.railway.app/products")
       .then((res) => {
         setPosts(res.data);
         setFavourite(new Array(res.data.length).fill(false));
@@ -36,7 +36,10 @@ function Home() {
     for (let i = 0; i < favorite.length; i++) {
       if (favorite[i]) {
         axios
-          .post("http://localhost:3000/wishlist", posts[i])
+          .post(
+            "https://backendshopcart-production.up.railway.app/wishlist",
+            posts[i]
+          )
           .then((res) => {
             console.log(res);
           })

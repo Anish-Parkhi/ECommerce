@@ -1,16 +1,16 @@
+import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import styles from "./Wishlsit.module.css";
-import DeleteIcon from "@mui/icons-material/Delete";
 import img from "./broken-heart.png";
-import { useNavigate } from "react-router-dom";
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:3000/wishlist")
+      .get("https://backendshopcart-production.up.railway.app/wishlist")
       .then((res) => {
         setWishlist(res.data);
       })
@@ -21,7 +21,7 @@ function Wishlist() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/wishlist/${id}`)
+      .delete(`https://backendshopcart-production.up.railway.app/${id}`)
       .then((res) => {
         console.log(res);
         setWishlist(wishlist.filter((item) => item._id !== id));

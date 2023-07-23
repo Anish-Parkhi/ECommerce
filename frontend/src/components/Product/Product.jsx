@@ -1,12 +1,12 @@
-import styles from "./Product.module.css";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import Navbar from "../Navbar/Navbar";
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Modal from "../Modal/Modal";
+import Navbar from "../Navbar/Navbar";
+import styles from "./Product.module.css";
 // import Cart from "../Cart/Cart";
 function Product() {
   const [count, setCount] = useState(1);
@@ -16,7 +16,7 @@ function Product() {
   const id = location.state.id;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${id}`)
+      .get(`https://backendshopcart-production.up.railway.app/${id}`)
       .then((res) => {
         setPosts(res.data);
       })
@@ -37,7 +37,7 @@ function Product() {
       url: posts.url,
     };
     axios
-      .post("http://localhost:3000/cart", newItem, {
+      .post("https://backendshopcart-production.up.railway.app/cart", newItem, {
         headers: {
           "Content-Type": "application/json",
         },

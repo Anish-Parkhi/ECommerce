@@ -1,11 +1,11 @@
-import Navbar from "../Navbar/Navbar";
-import axios from "axios";
-import styles from "./Cart.module.css";
-import { useEffect, useState } from "react";
-import cart from "./emptyCart.png";
 import DeleteIcon from "@mui/icons-material/Delete";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import StripeContainer from "../Stripe/StripeContainer";
+import styles from "./Cart.module.css";
+import cart from "./emptyCart.png";
 
 function Cart() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Cart() {
   const [showitem, setShowitem] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/cart")
+      .get("https://backendshopcart-production.up.railway.app/cart")
       .then((res) => {
         setData(res.data);
       })
@@ -23,7 +23,7 @@ function Cart() {
   }, []);
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/cart/${id}`)
+      .delete(`https://backendshopcart-production.up.railway.app/${id}`)
       .then(() => {
         setData(data.filter((item) => item._id !== id));
         console.log("Item deleted successfully!");

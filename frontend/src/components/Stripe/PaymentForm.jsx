@@ -37,10 +37,13 @@ function PaymentForm() {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const response = await axios.post("http://localhost:3000/payment", {
-          amount: 1000,
-          id,
-        });
+        const response = await axios.post(
+          "https://backendshopcart-production.up.railway.app/payment",
+          {
+            amount: 1000,
+            id,
+          }
+        );
         if (response.data.success) {
           console.log("Successful payment");
           setSuccess(true);
