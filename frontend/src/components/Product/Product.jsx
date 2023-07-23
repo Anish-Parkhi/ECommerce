@@ -16,7 +16,8 @@ function Product() {
   const id = location.state.id;
   useEffect(() => {
     axios
-      .get(`https://backendshopcart-production.up.railway.app/${id}`)
+      .get(`https://backendshopcart-production.up.railway.app/products/${id}`)
+      // .get(`http://localhost:3000/products/${id}`)
       .then((res) => {
         setPosts(res.data);
       })
